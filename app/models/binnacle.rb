@@ -1,0 +1,2 @@
+class Binnacle < ApplicationRecord
+end
