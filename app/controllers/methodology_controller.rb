@@ -1,0 +1,2 @@
+class MethodologyController < ApplicationController
+end

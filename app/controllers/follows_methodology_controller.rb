@@ -1,0 +1,2 @@
+class FollowsMethodologyController < ApplicationController
+end

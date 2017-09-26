@@ -1,0 +1,2 @@
+class BinnacleController < ApplicationController
+end
