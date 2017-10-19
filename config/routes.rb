@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :user,  path: 'users'
   resources :methodology, path: 'methodologies'
   resources :sessions, only: [:create,:destroy]
+  resources :follows_methodology, path: 'follows'
 end

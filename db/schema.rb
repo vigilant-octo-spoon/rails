@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019021739) do
+ActiveRecord::Schema.define(version: 20171019024937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,15 +56,12 @@ ActiveRecord::Schema.define(version: 20171019021739) do
   create_table "methodologies", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.bigint "user_id"
-    t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "link_video"
     t.string "category"
     t.string "organization"
-    t.index ["team_id"], name: "index_methodologies_on_team_id"
-    t.index ["user_id"], name: "index_methodologies_on_user_id"
+    t.string "author"
   end
 
   create_table "teams", force: :cascade do |t|

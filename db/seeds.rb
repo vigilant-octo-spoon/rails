@@ -37,3 +37,11 @@ met2 = Methodology.create(title: 'Gamificación',
                   link_video: 'https://www.youtube.com/watch?v=1yW6voYxNrA',
                   category: 'Educación',
                   organization: 'Pontificia Universidad Católica de Chile')
+
+
+#### Folows Methodology ######
+
+fm1 = FollowsMethodology.create(
+                  user_id: user1.id,
+                  methodology_id: met1.id
+                  )
