@@ -12,8 +12,12 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+g.mock_framework = :rspec
+end
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.mock_framework = :rspec
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

@@ -3,8 +3,8 @@ class CreateMethodologies < ActiveRecord::Migration[5.1]
     create_table :methodologies do |t|
       t.string :title
       t.string :description
-      t.reference :user
-      t.reference :team
+      t.references :user
+      t.references :team
 
       t.timestamps
     end

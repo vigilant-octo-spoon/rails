@@ -1,8 +1,8 @@
 class CreateFeedbacks < ActiveRecord::Migration[5.1]
   def change
     create_table :feedbacks do |t|
-      t.reference :user
-      t.reference :methodology
+      t.references :user
+      t.references :methodology
       t.string :comment
 
       t.timestamps

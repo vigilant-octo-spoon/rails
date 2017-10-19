@@ -2,7 +2,7 @@ class CreateBinnacles < ActiveRecord::Migration[5.1]
   def change
     create_table :binnacles do |t|
       t.string :content
-      t.reference :methodology
+      t.references :methodology
 
       t.timestamps
     end
