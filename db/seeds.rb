@@ -11,3 +11,4 @@ aux = User.create(username: 'Jose Hidalgo',
                   password: 'topsecret',
                   studies: 'estudiante ingenieria industrial en computación',
                   bio: 'vacio')
+aux.save()

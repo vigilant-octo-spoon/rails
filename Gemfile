@@ -29,8 +29,7 @@ gem 'puma', '~> 3.7'
 #auth
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', ref: 'a62faa2c8258ba1c35fe84e147f42c35eccccb8a'
 gem 'devise_token_auth', git: 'https://github.com/lynndylanhurley/devise_token_auth.git'
-gem 'hashie'
-gem 'omniauth'
+gem 'simple_token_authentication', '~> 1.0' # see semver.org
 
 
 gem 'rack-cors', :require => 'rack/cors'
