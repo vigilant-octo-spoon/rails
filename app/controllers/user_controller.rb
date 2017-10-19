@@ -6,6 +6,9 @@ class UserController < ApplicationController
   end
 
   def create
+    @user = User.new(user_params)
+    @user.save
+    render json: @users, status: :created
   end
 
   def show
@@ -15,6 +18,18 @@ class UserController < ApplicationController
   end
 
   def destroy
+      @user = User.where(id: params(:id)).first
+      if @user.destroy
+        head(:ok)
+      else
+        head(:fail)
+      end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :password, :email, :studies, :bio )
   end
 
 end
