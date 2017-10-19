@@ -14,6 +14,12 @@ class MethodologyController < ApplicationController
   end
 
   def show
+    @methodology = Methodology.find_by_id(params[:id])
+    if @methodology
+      render json: @methodology, status: :ok
+    else
+      head(:fail)
+    end
   end
 
   def update
