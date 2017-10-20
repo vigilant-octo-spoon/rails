@@ -51,7 +51,7 @@ class FollowsMethodologyController < ApplicationController
     end
     @user = User.where(authentication_token: auth_token).first
     if @user
-      folow_met= FollowsMethodology.create(user_id: params[:user],methodology_id: params[:metodology])
+      folow_met= FollowsMethodology.create(user_id: params[:user],methodology_id: params[:methodology])
       if folow_met.save
         render json: {"message": "Seguimiento con exito","idFolow": folow_met.id }, status: :fail
       else
