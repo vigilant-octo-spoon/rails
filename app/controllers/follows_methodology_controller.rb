@@ -34,10 +34,10 @@ class FollowsMethodologyController < ApplicationController
       folow_met = FollowsMethodology.find_by_methodology_id_and_user_id(params[:id],@user.id)
       if folow_met.destroy
         head(:ok)
+        render json: folow_met, status: :ok
       else
         render json: {"message": "Esto es información privada"}, status: :fail
       end
-      render json: folow_met, status: :ok
     else
       render json: {"message": "Esto es información privada"}, status: :fail
     end
@@ -57,7 +57,6 @@ class FollowsMethodologyController < ApplicationController
       else
         render json: {"message": "Esto es información privada"}, status: :fail
       end
-      render json: folow_met, status: :ok
     else
       render json: {"message": "Esto es información privada, usuario no encontrado"}, status: :fail
     end
