@@ -12,11 +12,22 @@
 ##### USERS #####
 user1 = User.create(username: 'Jose Hidalgo',
                   name: 'Josefina',
+                  admin: false,
                   last_name: 'Hidalgo',
                   email: 'jhidalgo1@uc.cl',
                   password: 'topsecret',
                   studies: 'estudiante ingenieria industrial en computación',
                   bio: 'vacio')
+
+
+user2 = User.create(username: 'Manuel Wulf',
+                    name: 'Manuel',
+                    admin: true,
+                    last_name: 'Wulf',
+                    email: 'mwulf@mail.com',
+                    password: 'topsecret',
+                    studies: 'Administrador del sistema',
+                    bio: 'vacio')
 user1.save
 
 ##### methodologies #####
@@ -44,4 +55,26 @@ met2 = Methodology.create(title: 'Gamificación',
 fm1 = FollowsMethodology.create(
                   user_id: user1.id,
                   methodology_id: met1.id
+                  )
+wr = WorkRole.create(name: 'Pedro Perez',  role: 'jefe de grupo', follows_methodologies_id: fm1.id)
+wr = WorkRole.create(name: 'Sofia Correa', role: 'ayudante jefe', follows_methodologies_id: fm1.id)
+
+rs = Resource.create(item: 'Guia de estudio', available: true, acquisition: 'ya adquerido', follows_methodologies_id: fm1.id)
+rs = Resource.create(item: 'Libros historia de Roma', available: false, acquisition: 'se espera que el colegio coopere en la compra del producto', follows_methodologies_id: fm1.id)
+rs = Resource.create(item: 'Entradas al museo', available: false, acquisition: 'se espera que el colegio coopere en la compra del producto', follows_methodologies_id: fm1.id)
+
+cn = Condition.create(item: 'Permisos para salir del colegio', info: 'Enviar solicitud a los padres para que permitan la escurcion al museo', follows_methodologies_id: fm1.id )
+cn = Condition.create(item: 'Fijar una fecha', info: 'Encontrar el mejor dia con la secretaria docente, en el que puedan salir toda la jornada', follows_methodologies_id: fm1.id )
+
+br = Broadcast.create(moment_of_implementation: 'Antes',audience: 'Alumnos', diffusion_channel: 'Comunicacion', objective: 'Informar de la salida al museo',follows_methodologies_id: fm1.id )
+br = Broadcast.create(moment_of_implementation: 'Durante',audience: 'Alumnos', diffusion_channel: 'Guia de trabajo', objective: 'Entregar y presentar el proyecto',follows_methodologies_id: fm1.id )
+br = Broadcast.create(moment_of_implementation: 'Despues',audience: 'Alumnos', diffusion_channel: 'Auto Evaluacion', objective: 'Que evaluen su propio desempeño y el proyecto',follows_methodologies_id: fm1.id )
+
+plan = Planning.create(
+                  initiative_name: 'Proyectos entretenidos',
+                  objective: 'Poner en practica las materias y aprendizajes del curso',
+                  place: 'colegio Nazaret, curso 8°B',
+                  start_date:  Date.new(2017,10,25),
+                  finish_date: Date.new(2017,11,30),
+                  follows_methodologies_id: fm1.id
                   )

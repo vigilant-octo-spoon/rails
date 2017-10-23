@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023161820) do
+ActiveRecord::Schema.define(version: 20171023172340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20171023161820) do
     t.string "diffusion_channel"
     t.string "objective"
     t.bigint "follows_methodologies_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["follows_methodologies_id"], name: "index_broadcasts_on_follows_methodologies_id"
   end
 
@@ -42,6 +44,8 @@ ActiveRecord::Schema.define(version: 20171023161820) do
     t.string "item"
     t.text "info"
     t.bigint "follows_methodologies_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["follows_methodologies_id"], name: "index_conditions_on_follows_methodologies_id"
   end
 
@@ -87,12 +91,14 @@ ActiveRecord::Schema.define(version: 20171023161820) do
   end
 
   create_table "plannings", force: :cascade do |t|
-    t.string "initiative__name"
+    t.string "initiative_name"
     t.string "objective"
     t.string "place"
     t.date "start_date"
     t.date "finish_date"
     t.bigint "follows_methodologies_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["follows_methodologies_id"], name: "index_plannings_on_follows_methodologies_id"
   end
 
@@ -101,6 +107,8 @@ ActiveRecord::Schema.define(version: 20171023161820) do
     t.boolean "available", default: false
     t.text "acquisition"
     t.bigint "follows_methodologies_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["follows_methodologies_id"], name: "index_resources_on_follows_methodologies_id"
   end
 
@@ -134,6 +142,8 @@ ActiveRecord::Schema.define(version: 20171023161820) do
     t.string "name"
     t.string "role"
     t.bigint "follows_methodologies_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["follows_methodologies_id"], name: "index_work_roles_on_follows_methodologies_id"
   end
 
