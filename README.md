@@ -409,7 +409,7 @@ body response:
 }
 ```
 
-##Resources of a FollowsMethodology
+##Binnacles of a FollowsMethodology
 
 ### All Binnacle (INDEX)
 URL: GET "follows/:id_follow/binnacle/"
@@ -501,5 +501,129 @@ body response:
 ```javascript
 {
     "message": "Bitacora eliminada exitosamente"
+}
+```
+
+##Evaluation of a FollowsMethodology
+
+###  Evaluation (only one for FollowsMethodology) (INDEX)
+URL: GET "follows/:id_follow/evaluation/"
+
+headers:
+  - token: USER TOKEN
+
+body response:
+- status: 200 OK
+
+```javascript
+{
+    "evaluation": {
+        "id": 1,
+        "comments_connect": "Opinion de la primera etapa de v...",
+        "comments_select": "Opinion de la segunda etapa ....",
+        "comments_planning": "Opinion de la 3° etapa de ....",
+        "comments_implementation": "Opinion  de la 4°......",
+        "users_reflection": "Reflecciones de los usuarios .....",
+        "users_suggestions": "Sugerencias de los usuarios ..."
+    }
+}
+```
+
+### Create Evaluation
+URL: POST "follows/:id_follow/evaluation"
+
+headers:
+  - token: USER TOKEN
+
+body request:
+```javascript
+{
+  "comments_connect": "Opinion de la primera etapa de v...",
+  "comments_select": "Opinion de la segunda etapa ....",
+  "comments_planning": "Opinion de la 3° etapa de ....",
+  "comments_implementation": "Opinion  de la 4°......",
+  "users_reflection": "Reflecciones de los usuarios .....",
+  "users_suggestions": "Sugerencias de los usuarios ..."
+}
+```
+
+body response:
+- status: 200 OK
+```javascript
+{
+    "message": "Evaluacion exitosa",
+    "idEvaluation": 2
+}
+```
+
+### destroy Evaluation
+URL: DELETE "follows/:id_follow/evaluation/:id"
+
+headers:
+  - token: USER TOKEN
+
+
+body response:
+- status: 200 OK
+```javascript
+{
+    "message": "Eliminacion exitosa"
+}
+```
+
+##Report of a FollowsMethodology
+
+###  Report (only one for FollowsMethodology) (INDEX)
+URL: GET "follows/:id_follow/report/"
+
+headers:
+  - token: USER TOKEN
+
+body response:
+- status: 200 OK
+
+```javascript
+{
+    "report": {
+        "id": 1,
+        "comment": "Esta es la etapa 6 de comunicar, agrgando un comentario final de la opinion y el desarrollo de la metodologia."
+    }
+}
+```
+
+### Create Report
+URL: POST "follows/:id_follow/report"
+
+headers:
+  - token: USER TOKEN
+
+body request:
+```javascript
+{
+  "comment": "Esta es la etapa 6 de comunicar, agrg..."
+}
+```
+
+body response:
+- status: 200 OK
+```javascript
+{
+    "message": "Reporte exitoso",
+    "idReport": 2
+}
+```
+
+### destroy Report
+URL: DELETE "follows/:id_follow/report/:id"
+
+headers:
+  - token: USER TOKEN
+
+
+body response:
+- status: 200 OK
+```javascript
+{
+    "message": "Eliminacion exitosa"
 }
 ```

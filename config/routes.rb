@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :condition, only: [:destroy, :create,:index]
       resources :broadcast, only: [:destroy, :create,:index]
       resources :binnacle, only: [:show,:destroy, :create,:index]
+      resources :evaluation, only: [:destroy, :index, :create]
+      resources :report, only: [:destroy,:index, :create]
 
   end
   resources  :plannings, only: [:index]

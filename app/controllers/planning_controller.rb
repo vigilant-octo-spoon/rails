@@ -59,7 +59,6 @@ class PlanningController < ApplicationController
     if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
       plan =  Planning.where(follows_methodologies_id: id_follow,id: params[:id]).first
       if plan.destroy
-        head(:ok)
         render json:  {"message": "Eliminacion exitosa"}, status: :ok
       else
         render json: {"message": "No puso ser eliminado, intente mas tarde" }, status: :fail

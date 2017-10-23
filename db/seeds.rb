@@ -88,3 +88,17 @@ bn = Binnacle.create(
                   ideas:  'Pedirles a los alumnos que lleven camara, ademas podemos hacer algun tipo de juego en la salida al museo.',
                   follows_methodologies_id:  fm1.id,
                   )
+
+eva = Evaluation.create(
+                  follows_methodologies_id: fm1.id,
+                  comments_connect: 'Opinion de la primera etapa de ver y conocer las metodologias disponibles',
+                  comments_select:  'Opinion de la segunda etapa de elegir metodologia',
+                  comments_planning: 'Opinion de la 3° etapa de planificar todo el proceso',
+                  comments_implementation: 'Opinion  de la 4° etapa de la implementacion, que mejorar, que funciono...',
+                  users_reflection: 'Reflecciones de los usuarios de la innovacion, ordenar sus ideas aca.',
+                  users_suggestions: 'Sugerencias de los usuarios de la innovacion'
+                  )
+rep = Report.create(
+                  follows_methodologies_id: fm1.id,
+                  comment: 'Esta es la etapa 6 de comunicar, agrgando un comentario final de la opinion y el desarrollo de la metodologia.'
+                  )
