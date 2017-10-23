@@ -50,12 +50,16 @@ ActiveRecord::Schema.define(version: 20171023205936) do
   end
 
   create_table "evaluations", force: :cascade do |t|
+    t.bigint "follows_methodologies_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "comments_connect"
     t.text "comments_select"
     t.text "comments_planning"
     t.text "comments_implementation"
+    t.text "users_reflection"
+    t.text "users_suggestions"
+    t.index ["follows_methodologies_id"], name: "index_evaluations_on_follows_methodologies_id"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -102,8 +106,10 @@ ActiveRecord::Schema.define(version: 20171023205936) do
 
   create_table "reports", force: :cascade do |t|
     t.text "comment"
+    t.bigint "follows_methodologies_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["follows_methodologies_id"], name: "index_reports_on_follows_methodologies_id"
   end
 
   create_table "resources", force: :cascade do |t|

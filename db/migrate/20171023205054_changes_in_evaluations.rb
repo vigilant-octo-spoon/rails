@@ -10,6 +10,5 @@ class ChangesInEvaluations < ActiveRecord::Migration[5.1]
     add_column :evaluations, :comments_implementation, :text
     add_column :evaluations, :users_reflection, :text
     add_column :evaluations, :users_suggestions, :text
-    add_column :evaluations, :comments_implementation, :text
   end
 end
