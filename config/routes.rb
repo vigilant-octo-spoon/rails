@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create,:destroy]
   resources :follows_methodology, path: 'follows'
   resources :follows_methodology, path: 'follows' do
-      resources :plannings, only: [:show,:create,:update]
+      resources :planning, only: [:destroy,:show, :create]
+      resources :work_role, only: [:destroy, :create, :index]
+      resources :resource, only: [:destroy, :create,:index]
+      resources :condition, only: [:destroy, :create,:index]
+      resources :broadcast, only: [:destroy, :create,:index]
   end
   resources  :plannings, only: [:index]
 

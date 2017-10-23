@@ -22,11 +22,52 @@ class PlanningController < ApplicationController
     end
   end
 
-
-  def show
-
-  end
   def create
+    if request.headers["token"].present?
+      auth_token = request.headers["token"]
+    else
+      auth_token = nil
+    end
+    id_follow = params[:follows_methodology_id]
+    @user = User.where(authentication_token: auth_token).first
+    if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
+      pls =  Planning.where(follows_methodologies_id: id_follow).first
+      Rails.logger.debug("My object: #{pls.inspect}")
+      if Planning.where(follows_methodologies_id: id_follow).first
+        render json: {"message": "Ya tienes esta parte de la planificacion hecha"}, status: :fail
+      else
+        plan = Planning.create(follows_methodologies_id: id_follow,initiative_name: params[:initiative_name],objective: params[:objective],place: params[:place],start_date: params[:start_date],finish_date: params[:finish_date])
+        if plan.save
+          render json: {"message": "Planificacion exitosa","idPlanning": plan.id}, status: :fail
+        else
+          render json: {"message": "Hubo ub error"}, status: :fail
+        end
+      end
+    else
+      render json: {"message": "Esto es información privada, usuario no encontrado"}, status: :fail
+    end
+  end
+
+  def destroy
+    if request.headers["token"].present?
+      auth_token = request.headers["token"]
+    else
+      auth_token = nil
+    end
+    id_follow = params[:follows_methodology_id]
+    @user = User.where(authentication_token: auth_token).first
+    if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
+      plan =  Planning.where(follows_methodologies_id: id_follow).first
+      if plan.destroy
+        head(:ok)
+        render json:  {"message": "Eliminacion exitosa"}, status: :ok
+      else
+        render json: {"message": "No puso ser eliminado, intente mas tarde" }, status: :fail
+      end
+    else
+      render json: {"message": "Esto es información privada"}, status: :fail
+    end
+
 
   end
 

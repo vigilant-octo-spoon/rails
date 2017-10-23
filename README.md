@@ -90,3 +90,42 @@ body response:
     ]
 }
 ```
+
+### Delete Planning
+URL: DELETE "follows/:id_follow/planning/:id"
+
+headers:
+  - token: USER TOKEN
+
+body response:
+- status: 200 OK
+```javascript
+    {"message": "Eliminacion exitosa"}
+```
+
+### Create Planning
+URL: POST "follows/:id_follow/planning/"
+
+headers:
+  - token: USER TOKEN
+
+body request:
+```javascript
+{
+	"initiative_name": "Proyectos!!!",
+	"objective": "Lograr hacer proyectos",
+	"place": "Curso de diseño",
+	"start_date": "2017-10-30",
+	"finish_date": "2017-12-30"
+}
+```
+
+body response:
+- status: 200 OK
+
+```javascript
+    {
+      "message": "Creacion exitosa",
+      "idPlanning": 1
+    }
+```
