@@ -38,7 +38,7 @@ class PlanningController < ApplicationController
       else
         plan = Planning.create(follows_methodologies_id: id_follow,initiative_name: params[:initiative_name],objective: params[:objective],place: params[:place],start_date: params[:start_date],finish_date: params[:finish_date])
         if plan.save
-          render json: {"message": "Planificacion exitosa","idPlanning": plan.id}, status: :fail
+          render json: {"message": "Planificacion exitosa","idPlanning": plan.id}, status: :ok
         else
           render json: {"message": "Hubo ub error"}, status: :fail
         end

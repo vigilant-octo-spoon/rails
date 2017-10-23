@@ -78,3 +78,13 @@ plan = Planning.create(
                   finish_date: Date.new(2017,11,30),
                   follows_methodologies_id: fm1.id
                   )
+bn = Binnacle.create(
+                  start_date:   Date.new(2017,10,23),
+                  finish_date:  Date.new(2017,10,23),
+                  objectives:  'Presentar metodologia',
+                  observations:  'Los alumnos se comportaron muy bien en las presentaciones, parecian interesados.....',
+                  advances:  'Las cosas han ido bien, destacamos que......',
+                  obstacles:  'Un grupo pequeño no puede unirse a la salida al museo por indicacion de sus padres, hay que ver como solucionar esto.',
+                  ideas:  'Pedirles a los alumnos que lleven camara, ademas podemos hacer algun tipo de juego en la salida al museo.',
+                  follows_methodologies_id:  fm1.id,
+                  )

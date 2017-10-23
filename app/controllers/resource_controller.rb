@@ -28,7 +28,7 @@ class ResourceController < ApplicationController
       if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
         res = Resource.create(follows_methodologies_id: id_follow,item: params[:item],available: params[:available],acquisition: params[:acquisition])
         if res.save
-          render json: {"message": "Recurso creado exitosamente","idResource": res.id}, status: :fail
+          render json: {"message": "Recurso creado exitosamente","idResource": res.id}, status: :ok
         else
           render json: {"message": "Hubo ub error"}, status: :fail
         end
@@ -48,7 +48,7 @@ class ResourceController < ApplicationController
       if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
         res = Resource.where(follows_methodologies_id: id_follow,id: params[:id]).first
         if res.destroy
-          render json: {"message": "Eliminacion de Difucion exitosa"}, status: :fail
+          render json: {"message": "Eliminacion de Difucion exitosa"}, status: :ok
         else
           render json: {"message": "Hubo ub error"}, status: :fail
         end

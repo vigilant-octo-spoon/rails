@@ -408,3 +408,98 @@ body response:
     "message": "Eliminacion de Difucion exitosa"
 }
 ```
+
+##Resources of a FollowsMethodology
+
+### All Binnacle (INDEX)
+URL: GET "follows/:id_follow/binnacle/"
+
+headers:
+  - token: USER TOKEN
+
+body response:
+- status: 200 OK
+
+```javascript
+{
+    "binnacles": [
+        {
+            "id": 1,
+            "start_date": "2017-10-23",
+            "finish_date": "2017-10-23",
+            "objectives": "Presentar metodologia",
+            "observations": "Los alumnos se comportaron muy bien en las presentaciones, parecian interesados.....",
+            "advances": "Las cosas han ido bien, destacamos que......",
+            "obstacles": "Un grupo pequeño no puede unirse a la salida al museo por indicacion de sus padres, hay que ver como solucionar esto.",
+            "ideas": "Pedirles a los alumnos que lleven camara, ademas podemos hacer algun tipo de juego en la salida al museo."
+        }
+    ]
+}
+```
+
+### One Binnacle (SHOW)
+
+
+body response:
+URL: GET "follows/:id_follow/binnacle/:id"
+
+headers:
+  - token: USER TOKEN
+
+```javascript
+{
+    "binnacle": {
+        "id": 2,
+        "start_date": "2017-10-23",
+        "finish_date": "2017-10-23",
+        "objectives": "Presentar metodologia",
+        "observations": "Los alu.....",
+        "advances": "Las cosas han ido bien, destacamos que......",
+        "obstacles": "Un grupo peq....",
+        "ideas": "Pedirles a los alumn..."
+    }
+}
+```
+
+### Create Binnacle
+URL: POST "follows/:id_follow/binnacle"
+
+headers:
+  - token: USER TOKEN
+
+body request:
+```javascript
+{
+  "start_date": "2017-10-23",
+  "finish_date": "2017-10-23",
+  "objectives": "Presentar metodologia",
+  "observations": "Los alu.....",
+  "advances": "Las cosas han ido bien, destacamos que......",
+  "obstacles": "Un grupo peq....",
+  "ideas": "Pedirles a los alumn..."
+}
+```
+
+body response:
+- status: 200 OK
+```javascript
+{
+    "message": "Bitacora creada exitosamente",
+    "idBinnacle": 2
+}
+```
+
+### destroy Binnacle
+URL: DELETE "follows/:id_follow/binnacle/:id"
+
+headers:
+  - token: USER TOKEN
+
+
+body response:
+- status: 200 OK
+```javascript
+{
+    "message": "Bitacora eliminada exitosamente"
+}
+```

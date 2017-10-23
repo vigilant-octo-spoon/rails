@@ -27,7 +27,7 @@ class WorkRoleController < ApplicationController
     if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
       rol = WorkRole.create(follows_methodologies_id: id_follow,name: params[:name],role: params[:role])
       if rol.save
-        render json: {"message": "Rol de trabajo creado exitosamente","idWorkRole": rol.id}, status: :fail
+        render json: {"message": "Rol de trabajo creado exitosamente","idWorkRole": rol.id}, status: :ok
       else
         render json: {"message": "Hubo ub error"}, status: :fail
       end
@@ -50,7 +50,7 @@ class WorkRoleController < ApplicationController
       Rails.logger.debug("My object: #{rol.inspect}")
       Rails.logger.debug("My object: #{rol.inspect}")
       if rol.destroy
-        render json: {"message": "Rol de trabajo eliminado exitosamente"}, status: :fail
+        render json: {"message": "Rol de trabajo eliminado exitosamente"}, status: :ok
       else
         render json: {"message": "Hubo ub error"}, status: :fail
       end

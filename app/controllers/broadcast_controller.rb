@@ -28,7 +28,7 @@ class BroadcastController < ApplicationController
     if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
       broads = Broadcast.create(follows_methodologies_id: id_follow,moment_of_implementation: params[:moment_of_implementation],audience: params[:audience],diffusion_channel: params[:diffusion_channel],objective: params[:objective])
       if broads.save
-        render json: {"message": "Difucion creada exitosamente","idBroadcast": broads.id}, status: :fail
+        render json: {"message": "Difucion creada exitosamente","idBroadcast": broads.id}, status: :ok
       else
         render json: {"message": "Hubo ub error"}, status: :fail
       end
@@ -48,7 +48,7 @@ class BroadcastController < ApplicationController
     if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
       broads = Broadcast.where(follows_methodologies_id: id_follow,id: params[:id]).first
       if broads.destroy
-        render json: {"message": "Difucion eliminada exitosamente"}, status: :fail
+        render json: {"message": "Difucion eliminada exitosamente"}, status: :ok
       else
         render json: {"message": "Hubo ub error"}, status: :fail
       end

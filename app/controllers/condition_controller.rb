@@ -27,7 +27,7 @@ class ConditionController < ApplicationController
     if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
       con = Condition.create(follows_methodologies_id: id_follow,item: params[:item],info: params[:info])
       if con.save
-        render json: {"message": "Condicion de planificacion creada exitosamente","idCondition": con.id}, status: :fail
+        render json: {"message": "Condicion de planificacion creada exitosamente","idCondition": con.id}, status: :ok
       else
         render json: {"message": "Hubo ub error"}, status: :fail
       end
@@ -47,7 +47,7 @@ class ConditionController < ApplicationController
     if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
       con = Condition.where(follows_methodologies_id: id_follow,id: params[:id]).first
       if con.destroy
-        render json: {"message": "Condicion de planificacion eliminada exitosamente"}, status: :fail
+        render json: {"message": "Condicion de planificacion eliminada exitosamente"}, status: :ok
       else
         render json: {"message": "Hubo ub error"}, status: :fail
       end
