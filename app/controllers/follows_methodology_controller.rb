@@ -1,19 +1,12 @@
 class FollowsMethodologyController < ApplicationController
 
   def index
-    Rails.logger.debug("....................................................................................")
-    Rails.logger.debug("My object: #{request.headers['token'].inspect}")
-    Rails.logger.debug("....................................................................................")
-
     if request.headers["token"].present?
       auth_token = request.headers["token"]
     else
       auth_token = nil
     end
     @user = User.where(authentication_token: auth_token).first
-    Rails.logger.debug("....................................................................................")
-    Rails.logger.debug("My object: #{@user.inspect}")
-    Rails.logger.debug("....................................................................................")
 
     if @user
       folow_met = FollowsMethodology.where(user_id: @user.id)
