@@ -10,17 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019024937) do
+ActiveRecord::Schema.define(version: 20171023161820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "binnacles", force: :cascade do |t|
-    t.string "content"
-    t.bigint "methodology_id"
+    t.date "start_date"
+    t.date "finish_date"
+    t.text "objectives"
+    t.text "observations"
+    t.text "advances"
+    t.text "obstacles"
+    t.text "ideas"
+    t.bigint "follows_methodologies_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["methodology_id"], name: "index_binnacles_on_methodology_id"
+    t.index ["follows_methodologies_id"], name: "index_binnacles_on_follows_methodologies_id"
+  end
+
+  create_table "broadcasts", force: :cascade do |t|
+    t.string "moment_of_implementation", default: "Antes"
+    t.string "audience"
+    t.string "diffusion_channel"
+    t.string "objective"
+    t.bigint "follows_methodologies_id"
+    t.index ["follows_methodologies_id"], name: "index_broadcasts_on_follows_methodologies_id"
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.string "item"
+    t.text "info"
+    t.bigint "follows_methodologies_id"
+    t.index ["follows_methodologies_id"], name: "index_conditions_on_follows_methodologies_id"
   end
 
   create_table "evaluations", force: :cascade do |t|
@@ -64,26 +86,29 @@ ActiveRecord::Schema.define(version: 20171019024937) do
     t.string "author"
   end
 
-  create_table "teams", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "plannings", force: :cascade do |t|
+    t.string "initiative__name"
+    t.string "objective"
+    t.string "place"
+    t.date "start_date"
+    t.date "finish_date"
+    t.bigint "follows_methodologies_id"
+    t.index ["follows_methodologies_id"], name: "index_plannings_on_follows_methodologies_id"
   end
 
-  create_table "user_teams", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["team_id"], name: "index_user_teams_on_team_id"
-    t.index ["user_id"], name: "index_user_teams_on_user_id"
+  create_table "resources", force: :cascade do |t|
+    t.string "item"
+    t.boolean "available", default: false
+    t.text "acquisition"
+    t.bigint "follows_methodologies_id"
+    t.index ["follows_methodologies_id"], name: "index_resources_on_follows_methodologies_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.boolean "admin"
     t.string "username"
     t.string "password"
-    t.string "email"
+    t.string "email", default: "", null: false
     t.string "studies"
     t.string "bio"
     t.datetime "created_at", null: false
@@ -103,6 +128,13 @@ ActiveRecord::Schema.define(version: 20171019024937) do
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "work_roles", force: :cascade do |t|
+    t.string "name"
+    t.string "role"
+    t.bigint "follows_methodologies_id"
+    t.index ["follows_methodologies_id"], name: "index_work_roles_on_follows_methodologies_id"
   end
 
 end
