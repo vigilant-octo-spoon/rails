@@ -57,7 +57,7 @@ class PlanningController < ApplicationController
     id_follow = params[:follows_methodology_id]
     @user = User.where(authentication_token: auth_token).first
     if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
-      plan =  Planning.where(follows_methodologies_id: id_follow).first
+      plan =  Planning.where(follows_methodologies_id: id_follow,id: params[:id]).first
       if plan.destroy
         head(:ok)
         render json:  {"message": "Eliminacion exitosa"}, status: :ok
