@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023172340) do
+ActiveRecord::Schema.define(version: 20171023205936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,14 +50,12 @@ ActiveRecord::Schema.define(version: 20171023172340) do
   end
 
   create_table "evaluations", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "methodology_id"
-    t.float "score"
-    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["methodology_id"], name: "index_evaluations_on_methodology_id"
-    t.index ["user_id"], name: "index_evaluations_on_user_id"
+    t.text "comments_connect"
+    t.text "comments_select"
+    t.text "comments_planning"
+    t.text "comments_implementation"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -100,6 +98,12 @@ ActiveRecord::Schema.define(version: 20171023172340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["follows_methodologies_id"], name: "index_plannings_on_follows_methodologies_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "resources", force: :cascade do |t|
