@@ -1,16 +1,15 @@
 # README
 
+## Endpoints
 
-##APIS
-
-### Get all planning info  of a FollowsMethodology:
+### Get all planning info of a Followed Methodology
 
 URL: GET "follows/:id_follow/plannings"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body response:
+RESPONSE:
 ```javascript
 {
     "planning": {
@@ -94,11 +93,11 @@ body response:
 ### Delete Planning
 URL: DELETE "follows/:id_follow/planning/:id"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
     {"message": "Eliminacion exitosa"}
 ```
@@ -106,10 +105,10 @@ body response:
 ### Create Planning
 URL: POST "follows/:id_follow/planning/"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body request:
+EXAMPLE REQUEST:
 ```javascript
 {
 	"initiative_name": "Proyectos!!!",
@@ -120,8 +119,8 @@ body request:
 }
 ```
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 
 ```javascript
     {
@@ -130,16 +129,16 @@ body response:
     }
 ```
 
-##WORK ROLES of a FollowsMethodology
+## Work Roles of a Followed Methodology
 
-### All WorkRoles (INDEX)
+### All Work Roles (INDEX)
 URL: GET "follows/:id_follow/work_roles/"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 
 ```javascript
 {
@@ -158,13 +157,13 @@ body response:
 }
 ```
 
-### Create WorkRoles
+### Create Work Role
 URL: POST "follows/:id_follow/work_role"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body request:
+EXAMPLE REQUEST:
 ```javascript
 {
 	"name": "Pablo Ovalle",
@@ -172,39 +171,39 @@ body request:
 }
 ```
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
  {
    "message": "Rol de trabajo creado exitosamente",
    "idWorkRole": rol.id
  }
 ```
-### destroy WorkRoles
+### Delete Work Role
 URL: DELETE "follows/:id_follow/work_role/:id"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-
-
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
+  
 ```javascript
  {
    "message": "Rol de trabajo eliminado exitosamente"
  }
 ```
-##Conditions of a FollowsMethodology
+
+## Conditions of a Followed Methodology
 
 ### All Conditions (INDEX)
 URL: GET "follows/:id_follow/condition/"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 
 ```javascript
 {
@@ -226,10 +225,10 @@ body response:
 ### Create Condition
 URL: POST "follows/:id_follow/condition"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body request:
+EXAMPLE REQUEST:
 ```javascript
 {
 	"item": "Cuota de inscripcion",
@@ -237,8 +236,8 @@ body request:
 }
 ```
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
   "message":  "Condicion de planificacion creada exitosamente",
@@ -246,31 +245,30 @@ body response:
 }
 ```
 
-### destroy Condition
+### Delete Condition
 URL: DELETE "follows/:id_follow/condition/:id"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Condicion de planificacion eliminada exitosamente"
 }
 ```
 
-##Broadcast of a FollowsMethodology
+## Broadcast of a Followed Methodology
 
-### All Broadcast (INDEX)
+### All Broadcasts (INDEX)
 URL: GET "follows/:id_follow/broadcast/"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 
 ```javascript
 {
@@ -303,10 +301,10 @@ body response:
 ### Create Broadcast
 URL: POST "follows/:id_follow/broadcast"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body request:
+EXAMPLE REQUEST:
 ```javascript
 {
   "moment_of_implementation": "Despues",
@@ -316,8 +314,8 @@ body request:
 }
 ```
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Difucion creada exitosamente",
@@ -325,31 +323,31 @@ body response:
 }
 ```
 
-### destroy Broadcast
+### Delete Broadcast
 URL: DELETE "follows/:id_follow/broadcast/:id"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Difucion eliminada exitosamente"
 }
 ```
 
-##Resources of a FollowsMethodology
+## Resources of a Followed Methodology
 
-### All Resource (INDEX)
+### All ResourceS (INDEX)
 URL: GET "follows/:id_follow/resource/"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 
 ```javascript
 {
@@ -373,10 +371,10 @@ body response:
 ### Create Resource
 URL: POST "follows/:id_follow/resource"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body request:
+EXAMPLE REQUEST:
 ```javascript
 {
   "item": "Guia de estudio",
@@ -385,8 +383,8 @@ body request:
 }
 ```
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Recurso creado exitosamente",
@@ -394,31 +392,30 @@ body response:
 }
 ```
 
-### destroy Resource
+### Delete Resource
 URL: DELETE "follows/:id_follow/resource/:id"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Eliminacion de Difucion exitosa"
 }
 ```
 
-##Binnacles of a FollowsMethodology
+## Binnacles of a Followed Methodology
 
-### All Binnacle (INDEX)
+### All Binnacles (INDEX)
 URL: GET "follows/:id_follow/binnacle/"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 
 ```javascript
 {
@@ -437,15 +434,14 @@ body response:
 }
 ```
 
-### One Binnacle (SHOW)
+### Show Binnacle
 
-
-body response:
 URL: GET "follows/:id_follow/binnacle/:id"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
+RESPONSE:
 ```javascript
 {
     "binnacle": {
@@ -464,10 +460,10 @@ headers:
 ### Create Binnacle
 URL: POST "follows/:id_follow/binnacle"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body request:
+EXAMPLE REQUEST:
 ```javascript
 {
   "start_date": "2017-10-23",
@@ -480,8 +476,8 @@ body request:
 }
 ```
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Bitacora creada exitosamente",
@@ -489,31 +485,30 @@ body response:
 }
 ```
 
-### destroy Binnacle
+### Delete Binnacle
 URL: DELETE "follows/:id_follow/binnacle/:id"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Bitacora eliminada exitosamente"
 }
 ```
 
-##Evaluation of a FollowsMethodology
+## Evaluation of a Followed Methodology
 
-###  Evaluation (only one for FollowsMethodology) (INDEX)
+###  Show Evaluation
 URL: GET "follows/:id_follow/evaluation/"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 
 ```javascript
 {
@@ -532,10 +527,10 @@ body response:
 ### Create Evaluation
 URL: POST "follows/:id_follow/evaluation"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body request:
+EXAMPLE REQUEST:
 ```javascript
 {
   "comments_connect": "Opinion de la primera etapa de v...",
@@ -547,8 +542,8 @@ body request:
 }
 ```
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Evaluacion exitosa",
@@ -556,31 +551,30 @@ body response:
 }
 ```
 
-### destroy Evaluation
+### Delete Evaluation
 URL: DELETE "follows/:id_follow/evaluation/:id"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Eliminacion exitosa"
 }
 ```
 
-##Report of a FollowsMethodology
+## Report of a Followed Methodology
 
-###  Report (only one for FollowsMethodology) (INDEX)
+###  Show Report
 URL: GET "follows/:id_follow/report/"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 
 ```javascript
 {
@@ -594,18 +588,18 @@ body response:
 ### Create Report
 URL: POST "follows/:id_follow/report"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-body request:
+EXAMPLE REQUEST:
 ```javascript
 {
   "comment": "Esta es la etapa 6 de comunicar, agrg..."
 }
 ```
 
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Reporte exitoso",
@@ -613,17 +607,64 @@ body response:
 }
 ```
 
-### destroy Report
+### Delete Report
 URL: DELETE "follows/:id_follow/report/:id"
 
-headers:
+HEADERS:
   - token: USER TOKEN
 
-
-body response:
-- status: 200 OK
+RESPONSE:
+  - status: 200 OK
 ```javascript
 {
     "message": "Eliminacion exitosa"
 }
 ```
+
+## Show Methodologies followed by user
+URL: GET "follows/"
+
+HEADERS:
+  - token: USER TOKEN
+  
+RESPONSE:
+  - status: 200 OK
+```javascript
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "methodology_id": 1,
+        "created_at": "2017-10-19T03:35:58.143Z",
+        "updated_at": "2017-10-19T03:35:58.143Z"
+    }
+]
+```
+
+## Follow Methodology
+URL: POST "follows/"
+
+HEADERS:
+  - token: USER TOKEN
+  
+PARAMS:
+  - user: USER ID
+  - methodology: METHODOLOGY ID
+  
+RESPONSE:
+  - status: 200 OK
+```javascript
+  {
+      "message": "Seguimiento realizado con exito",
+      "idFollow": 1
+  }
+```
+
+## Unfollow Methodology
+URL: DELETE "follows/:methodology_id"
+
+HEADERS:
+  - token: USER TOKEN
+  
+RESPONSE:
+  - status: 200 OK
