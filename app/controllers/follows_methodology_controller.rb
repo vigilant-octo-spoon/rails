@@ -10,6 +10,13 @@ class FollowsMethodologyController < ApplicationController
 
     if @user
       folow_met = FollowsMethodology.where(user_id: @user.id)
+      follows = []
+      folow_met.each do |fll|
+        methodology_name = Methodology.find_by_id(fll.methodology_id)
+        
+      end
+
+
       render json: folow_met, status: :ok
     else
       render json: {"message": "Esto es información privada"}, status: :fail

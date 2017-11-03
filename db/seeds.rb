@@ -54,7 +54,8 @@ met2 = Methodology.create(title: 'Gamificación',
 
 fm1 = FollowsMethodology.create(
                   user_id: user1.id,
-                  methodology_id: met1.id
+                  methodology_id: met1.id,
+                  step: 7
                   )
 wr = WorkRole.create(name: 'Pedro Perez',  role: 'jefe de grupo', follows_methodologies_id: fm1.id)
 wr = WorkRole.create(name: 'Sofia Correa', role: 'ayudante jefe', follows_methodologies_id: fm1.id)

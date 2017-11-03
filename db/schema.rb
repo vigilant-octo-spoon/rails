@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023205936) do
+ActiveRecord::Schema.define(version: 20171103185045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20171023205936) do
     t.bigint "methodology_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "step"
     t.index ["methodology_id"], name: "index_follows_methodologies_on_methodology_id"
     t.index ["user_id"], name: "index_follows_methodologies_on_user_id"
   end

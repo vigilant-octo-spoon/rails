@@ -14,9 +14,10 @@ Rails.application.routes.draw do
       resources :binnacle, only: [:show,:destroy, :create,:index]
       resources :evaluation, only: [:destroy, :index, :create]
       resources :report, only: [:destroy,:index, :create]
-
   end
+
   resources  :plannings, only: [:index]
 
   get '/follows/:follows_methodology_id/plannings/', to: 'planning#show_follow', as: 'show_follow_planning'
+  get '/experiences', to: 'evaluation#all_user', as: 'evaluation_all_user_path'
 end

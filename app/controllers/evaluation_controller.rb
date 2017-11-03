@@ -63,8 +63,10 @@ class EvaluationController < ApplicationController
     else
       render json: {"message": "Esto es información privada"}, status: :fail
     end
+  end
 
-
+  def all_user
+    render json: {"message": "api funciona"}, status: :200
   end
 
 end
