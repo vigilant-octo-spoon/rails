@@ -10,6 +10,9 @@ class FollowsMethodologyController < ApplicationController
 
     if @user
       folow_met = FollowsMethodology.where(user_id: @user.id)
+      if @user.admin
+        folow_met = FollowsMethodology.all
+      end
       follows = []
       folow_met.each do |fll|
         #### INFO F #####
@@ -31,7 +34,7 @@ class FollowsMethodologyController < ApplicationController
         rep = Report.where(follows_methodologies_id: fll.id).select(:id,:comment).first
         json_step6 = { :report => rep}
 
-        json_follow= { :id => fll.id, :name => methodology_name, :step => fll.step, :step3 => json_step3, :step4 => json_step4, :step5 => json_step5, :step6 => json_step6 }
+        json_follow= { :id => fll.id, :user_id => fll.user_id, :name => methodology_name, :step => fll.step, :step3 => json_step3, :step4 => json_step4, :step5 => json_step5, :step6 => json_step6 }
         follows.push(json_follow)
       end
       json_final = { :follows => follows}.to_json
