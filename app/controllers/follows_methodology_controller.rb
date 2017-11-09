@@ -129,4 +129,27 @@ class FollowsMethodologyController < ApplicationController
     end
   end
 
+  def step
+    if request.headers["token"].present?
+      auth_token = request.headers["token"]
+    else
+      auth_token = nil
+    end
+    @user = User.where(authentication_token: auth_token).first
+    if @user
+      folow_met = FollowsMethodology.where(id: params[:follows_methodology_id],user_id: @user.id).first
+      if folow_met
+        folow_met.step = params[:step]
+        if folow_met.save
+          render json: {"message": "Step actulizado","step": folow_met.step }, status: :ok
+        else
+          render json: {"message": "No se pudo actualizar el dato"}, status: :fail
+        end
+      else
+        render json: {"message": "Esto es información privada"}, status: :fail
+      end
+    else
+      render json: {"message": "Esto es información privada, usuario no encontrado"}, status: :fail
+    end
+  end
 end

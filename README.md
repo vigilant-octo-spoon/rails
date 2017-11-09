@@ -26,6 +26,23 @@ RESPONSE
 }
 ```
 
+### Follows step updated
+URL: PATCH "follows/:id_follow/step"
+
+HEADERS:
+  - Content-Type: "application/json"
+  - token: USER TOKEN
+
+BODY:
+  - step: INTEGER (3 to 7)
+
+RESPONSE
+```javascript
+{
+    "message": "Step actulizado",
+    "step": 6
+}
+```
 
 
 ### Get all planning info of a Followed Methodology
@@ -731,6 +748,4 @@ RESPONSE:
                                 "id": 1,
                                 "name": "Pedro Perez",
                                 "role": "jefe de grupo"
-                          .....
-
-  ```
+          ```
