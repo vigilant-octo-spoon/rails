@@ -50,7 +50,7 @@ class BinnacleController < ApplicationController
       if @user && FollowsMethodology.where(user_id: @user.id,id: id_follow)
         bin = Binnacle.create(follows_methodologies_id: id_follow, start_date: params[:start_date],finish_date: params[:finish_date],objectives: params[:objectives],observations: params[:observations],advances: params[:advances],obstacles: params[:obstacles],ideas: params[:ideas])
         if bin.save
-          render json: {"message": "Bitacora creada exitosamente","idBinnacle": bin.id}, status: :fail
+          render json: {"message": "Bitacora creada exitosamente","idBinnacle": bin.id}, status: :ok
         else
           render json: {"message": "Hubo ub error"}, status: :fail
         end

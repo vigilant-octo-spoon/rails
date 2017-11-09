@@ -74,7 +74,7 @@ class FollowsMethodologyController < ApplicationController
     if @user
       folow_met= FollowsMethodology.create(user_id: params[:user],methodology_id: params[:methodology])
       if folow_met.save
-        render json: {"message": "Seguimiento con exito","idFolow": folow_met.id }, status: :fail
+        render json: {"message": "Seguimiento con exito","idFolow": folow_met.id }, status: :ok
       else
         render json: {"message": "Esto es información privada"}, status: :fail
       end

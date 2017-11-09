@@ -36,7 +36,7 @@ class ReportController < ApplicationController
         else
           rep = Report.create(follows_methodologies_id: id_follow,comment: params[:comment])
           if rep.save
-            render json: {"message": "Reporte exitoso","idReport": rep.id}, status: :ok
+            render json: {"message": "Reporte creado exitosamente","idReport": rep.id}, status: :ok
           else
             render json: {"message": "Hubo ub error"}, status: :fail
           end
