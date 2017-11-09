@@ -2,6 +2,32 @@
 
 ## Endpoints
 
+### User logIN
+
+URL: POST "sessions"
+
+HEADERS:
+  - Content-Type: "application/json"
+
+BODY:
+  - email: USER EMAIL
+  - password: USER PASSWORD
+  (only web):
+  - admin: true
+
+RESPONSE
+```javascript
+{
+    "id": 2,
+    "email": "mwulf@mail.com",
+    "authentication_token": USER TOKEN,
+    "name": "Manuel",
+    "last_name": "Wulf"
+}
+```
+
+
+
 ### Get all planning info of a Followed Methodology
 
 URL: GET "follows/:id_follow/plannings"
@@ -187,7 +213,7 @@ HEADERS:
 
 RESPONSE:
   - status: 200 OK
-  
+
 ```javascript
  {
    "message": "Rol de trabajo eliminado exitosamente"
@@ -626,7 +652,7 @@ URL: GET "follows/"
 
 HEADERS:
   - token: USER TOKEN
-  
+
 RESPONSE:
   - status: 200 OK
 ```javascript
@@ -646,11 +672,11 @@ URL: POST "follows/"
 
 HEADERS:
   - token: USER TOKEN
-  
+
 PARAMS:
   - user: USER ID
   - methodology: METHODOLOGY ID
-  
+
 RESPONSE:
   - status: 200 OK
 ```javascript
@@ -665,6 +691,46 @@ URL: DELETE "follows/:methodology_id"
 
 HEADERS:
   - token: USER TOKEN
-  
+
 RESPONSE:
   - status: 200 OK
+
+
+## All users follows (only admin)
+
+URL: GET "/follows_all_users"
+HEADRES:
+  - token: ADMIN TOKEN
+
+RESPONSE:
+  - status: 200 OK
+
+  ```javascript
+  {
+    "users": [
+        {
+            "name": "Josefina",
+            "last_name": "Hidalgo",
+            "email": "jhidalgo1@uc.cl",
+            "follows": [
+                {
+                    "id": 1,
+                    "name": "Aprendizaje Basado en Proyectos (ABP)",
+                    "step": 3,
+                    "step3": {
+                        "planning": {
+                            "id": 1,
+                            "initiative_name": "Proyectos entretenidos",
+                            "objective": "Poner en practica las materias y aprendizajes del curso",
+                            "place": "colegio Nazaret, curso 8°B",
+                            "start_date": "2017-10-25",
+                            "finish_date": "2017-11-30"
+                        },
+                        "work_roles": [
+                            {
+                                "id": 1,
+                                "name": "Pedro Perez",
+                                "role": "jefe de grupo"
+                          .....
+
+  ```

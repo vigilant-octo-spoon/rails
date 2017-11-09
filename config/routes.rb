@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources  :plannings, only: [:index]
 
   get '/follows/:follows_methodology_id/plannings/', to: 'planning#show_follow', as: 'show_follow_planning'
+  get '/follows_all_users/', to: 'follows_methodology#all_users', as: 'follows_all_users'
 end
