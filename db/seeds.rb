@@ -28,6 +28,33 @@ user2 = User.create(username: 'Manuel Wulf',
                     password: 'topsecret',
                     studies: 'Administrador del sistema',
                     bio: 'vacio')
+
+user3 = User.create(username: 'Pedro Piedra',
+                    name: 'Pedro',
+                    admin: false,
+                    last_name: 'Pidera',
+                    email: 'mwulf@mail.com',
+                    password: '123123',
+                    studies: 'estudiante ingenieria industrial en computación',
+                    bio: 'vacio')
+
+user4 = User.create(username: 'Sofia Larrain',
+                    name: 'Sofia',
+                    admin: false,
+                    last_name: 'Larrain',
+                    email: 'slara@mail.com',
+                    password: '123123',
+                    studies: 'estudiante ingenieria industrial en computación',
+                    bio: 'vacio')
+
+user5 = User.create(username: 'Elisa Besa',
+                    name: 'Elisa',
+                    admin: false,
+                    last_name: 'Besa',
+                    email: 'ebesa@mail.com',
+                    password: '123123',
+                    studies: 'estudiante ingenieria industrial en computación',
+                    bio: 'vacio')
 user1.save
 
 ##### methodologies #####
@@ -43,7 +70,7 @@ met2 = Methodology.create(title: 'Flipped Classroom (Aula Invertida)',
                   category: 'Educación',
                   organization: 'Pontificia Universidad Católica de Chile')
 
-met2 = Methodology.create(title: 'Gamificación',
+met3 = Methodology.create(title: 'Gamificación',
                   description: 'Se trata de la integración de mecánicas y dinámicas de juego y videojuegos en entornos no lúdicos, con el fin de potenciar la motivación, la concentración, el esfuerzo, la fidelización y otros valores positivos comunes a todos los juegos. La integración de dinámicas de juego en dichos entornos no es un fenómeno nuevo, pero el crecimiento exponencial del uso de videojuegos en los últimos años ha despertado el interés de muchos expertos del ámbito educativo.',
                   link_video: 'https://www.youtube.com/watch?v=1yW6voYxNrA',
                   category: 'Educación',
@@ -54,8 +81,35 @@ met2 = Methodology.create(title: 'Gamificación',
 
 fm1 = FollowsMethodology.create(
                   user_id: user1.id,
+                  step: 7,
                   methodology_id: met1.id
                   )
+fm2 = FollowsMethodology.create(
+                  user_id: user1.id,
+                  step: 3,
+                  methodology_id: met2.id
+                  )
+fm3 = FollowsMethodology.create(
+                  user_id: user3.id,
+                  step: 6,
+                  methodology_id: met1.id
+                  )
+fm4 = FollowsMethodology.create(
+                  user_id: user4.id,
+                  step: 6,
+                  methodology_id: met3.id
+                  )
+fm5 = FollowsMethodology.create(
+                  user_id: user4.id,
+                  step: 6,
+                  methodology_id: met1.id
+                  )
+fm6 = FollowsMethodology.create(
+                  user_id: user5.id,
+                  step: 6,
+                  methodology_id: met1.id
+                  )
+
 wr = WorkRole.create(name: 'Pedro Perez',  role: 'jefe de grupo', follows_methodologies_id: fm1.id)
 wr = WorkRole.create(name: 'Sofia Correa', role: 'ayudante jefe', follows_methodologies_id: fm1.id)
 
